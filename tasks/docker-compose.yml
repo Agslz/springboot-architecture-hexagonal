@@ -1,6 +1,16 @@
 version: '3.8'
 
 services:
+  spring_app:
+    build: .
+    container_name: spring_app
+    ports:
+      - "8080:8080"
+    depends_on:
+      - mysql_db
+    networks:
+      - my_network
+
   mysql_db:
     image: mysql:8.0
     container_name: mysql_db
